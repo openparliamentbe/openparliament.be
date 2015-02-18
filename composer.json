@@ -1,0 +1,17 @@
+{
+    "name": "openparliamentbe/openparliamentbe",
+    "description": "The OpenParliament.be website",
+    "authors": [
+        {
+            "name": "Michaël Lecerf",
+            "email": "michael@estsurinter.net"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+
+    },
+    "require-dev": {
+
+    }
+}
