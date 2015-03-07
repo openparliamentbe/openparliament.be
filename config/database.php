@@ -61,6 +61,22 @@ return [
 			'strict'    => false,
 		],
 
+		// This is the migration connection. It is only used to
+		// perform changes and updates to the schema itself,
+		// as well as running seeders to feed the tables.
+
+		'migration' => [
+			'driver'    => env('DB_DRIVER'),
+			'host'      => env('DB_HOST'),
+			'database'  => env('DB_DATABASE'),
+			'username'  => env('DB_MIGRATION_USERNAME') ?: env('DB_USERNAME'),
+			'password'  => env('DB_MIGRATION_PASSWORD') ?: env('DB_PASSWORD'),
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+			'strict'    => false,
+		],
+
 	],
 
 	/*
