@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => 'main',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -46,42 +46,35 @@ return [
 
 	'connections' => [
 
-		'sqlite' => [
-			'driver'   => 'sqlite',
-			'database' => storage_path().'/database.sqlite',
-			'prefix'   => '',
-		],
+		// This is the main connection. It is used for
+		// the daily operations of the application.
 
-		'mysql' => [
-			'driver'    => 'mysql',
-			'host'      => env('DB_HOST', 'localhost'),
-			'database'  => env('DB_DATABASE', 'forge'),
-			'username'  => env('DB_USERNAME', 'forge'),
-			'password'  => env('DB_PASSWORD', ''),
+		'main' => [
+			'driver'    => env('DB_DRIVER'),
+			'host'      => env('DB_HOST'),
+			'database'  => env('DB_DATABASE'),
+			'username'  => env('DB_USERNAME'),
+			'password'  => env('DB_PASSWORD'),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 			'strict'    => false,
 		],
 
-		'pgsql' => [
-			'driver'   => 'pgsql',
-			'host'     => env('DB_HOST', 'localhost'),
-			'database' => env('DB_DATABASE', 'forge'),
-			'username' => env('DB_USERNAME', 'forge'),
-			'password' => env('DB_PASSWORD', ''),
-			'charset'  => 'utf8',
-			'prefix'   => '',
-			'schema'   => 'public',
-		],
+		// This is the migration connection. It is only used to
+		// perform changes and updates to the schema itself,
+		// as well as running seeders to feed the tables.
 
-		'sqlsrv' => [
-			'driver'   => 'sqlsrv',
-			'host'     => env('DB_HOST', 'localhost'),
-			'database' => env('DB_DATABASE', 'forge'),
-			'username' => env('DB_USERNAME', 'forge'),
-			'password' => env('DB_PASSWORD', ''),
-			'prefix'   => '',
+		'migration' => [
+			'driver'    => env('DB_DRIVER'),
+			'host'      => env('DB_HOST'),
+			'database'  => env('DB_DATABASE'),
+			'username'  => env('DB_MIGRATION_USERNAME') ?: env('DB_USERNAME'),
+			'password'  => env('DB_MIGRATION_PASSWORD') ?: env('DB_PASSWORD'),
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+			'strict'    => false,
 		],
 
 	],
@@ -97,7 +90,7 @@ return [
 	|
 	*/
 
-	'migrations' => 'migrations',
+	'migrations' => 'laravel_migrations',
 
 	/*
 	|--------------------------------------------------------------------------
