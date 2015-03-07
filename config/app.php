@@ -145,6 +145,11 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+		/*
+		* Third-party Service Providers...
+		*/
+		// 'Acme\Foo\FooServiceProvider',
+
 	],
 
 	/*
