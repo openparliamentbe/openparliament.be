@@ -8,8 +8,15 @@
         }
     ],
     "minimum-stability": "stable",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/miclf/methuselah"
+        }
+    ],
     "require": {
-        "laravel/framework": "5.0.*"
+        "laravel/framework": "5.0.*",
+        "pandemonium/methuselah": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0",
