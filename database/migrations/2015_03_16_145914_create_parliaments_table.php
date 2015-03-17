@@ -19,7 +19,7 @@ class CreateParliamentsTable extends Migration
 
             // Primary key.
             // This is the single letter code of the parliament.
-            $table->char('code', 1)->primary('code');
+            $table->char('id', 1)->primary('code');
 
             // Main data.
             // Name of the assembly, in multiple languages.
