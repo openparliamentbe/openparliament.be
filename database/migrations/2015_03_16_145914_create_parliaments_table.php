@@ -18,8 +18,8 @@ class CreateParliamentsTable extends Migration
         Schema::create('parliaments', function (Blueprint $table) {
 
             // Primary key.
-            // This is the single letter code of the parliament.
-            $table->char('id', 1)->primary('code');
+            // A single letter code identifying the parliament.
+            $table->char('id', 1)->primary();
 
             // Main data.
             // Name of the assembly, in multiple languages.
