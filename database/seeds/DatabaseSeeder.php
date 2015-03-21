@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->call('ParliamentsTableSeeder');
+        $this->call('LegislaturesTableSeeder');
     }
 }
