@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call('ParliamentsTableSeeder');
         $this->call('LegislaturesTableSeeder');
+        $this->call('SessionsTableSeeder');
     }
 }
