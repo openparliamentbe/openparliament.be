@@ -16,17 +16,17 @@ class CreateDossiersTable extends Migration
      * @var array
      */
     protected $dossierTypes = [
-        'LAW_PROPOSAL',
-        'RESOLUTION_PROPOSAL',
-        'DECLARATION_PROPOSAL',
-        'CONSTITUTIONAL_REVISION_PROPOSAL',
-        'COMMUNICATION_TO_PARLIAMENT',
-        'REPORT',
         'AMENDMENT',
-        'OPINION_COUNCIL_OF_STATE',
-        'TABLE_OR_LIST',
+        'COMMUNICATION_TO_PARLIAMENT',
         'CONCERTATION_COMMITTEE_DECISION',
+        'CONSTITUTIONAL_REVISION_PROPOSAL',
+        'DECLARATION_PROPOSAL',
         'ELECTIONS',
+        'LAW_PROPOSAL',
+        'OPINION_COUNCIL_OF_STATE',
+        'REPORT',
+        'RESOLUTION_PROPOSAL',
+        'TABLE_OR_LIST',
     ];
 
     /**
