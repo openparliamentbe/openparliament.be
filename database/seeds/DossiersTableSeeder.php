@@ -68,10 +68,10 @@ class DossiersTableSeeder extends Seeder
                 'type' => $fakerFr->randomElement($this->dossierTypes),
                 'status' => $fakerFr->randomElement($this->dossierStatuses),
                 'constitutional_article' => '78',
-                'submitted_on' => $fakerFr->dateTimeBetween('1 year ago', 'now'),
-                'considered_on' => $fakerFr->dateTimeBetween('11 months ago', 'now'),
-                'distributed_on' => $fakerFr->dateTimeBetween('11 months ago', 'now'),
-                'sent_on' => $fakerFr->dateTimeBetween('10 months ago', 'now'),
+                'submitted_on' => $fakerFr->dateTimeBetween('1 year ago', '11 months ago'),
+                'considered_on' => $fakerFr->dateTimeBetween('11 months ago', '10 months ago'),
+                'distributed_on' => $fakerFr->dateTimeBetween('10 months ago', '9 months ago'),
+                'sent_on' => $fakerFr->dateTimeBetween('9 months ago', '8 months ago'),
             ];
         }
 
