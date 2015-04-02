@@ -55,7 +55,17 @@ class DossiersTableSeeder extends Seeder
      */
     protected $dossierStatuses = [
         'PENDING',
+        'PENDING',
+        'PENDING',
+        'PENDING',
+        'PENDING',
+        'PENDING',
+        'PENDING',
+        'PENDING',
+        'PENDING',
+        'PENDING',
         'REMOVED',
+        'VOID',
         'VOID',
     ];
 
