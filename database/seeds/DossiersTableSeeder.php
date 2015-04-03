@@ -70,6 +70,25 @@ class DossiersTableSeeder extends Seeder
     ];
 
     /**
+     * A dictionary of relevant Constitution article numbers.
+     *
+     * @var array
+     */
+    protected $constitutionArticles = [
+        '77',
+        '78',
+        '78',
+        '78',
+        '78',
+        '78',
+        '78',
+        '78',
+        '78',
+        '78',
+        '78',
+    ];
+
+    /**
      * Run the seeder.
      */
     public function run()
@@ -96,7 +115,7 @@ class DossiersTableSeeder extends Seeder
                 'short_title_nl' => strtoupper($fakerNl->words(4, true)),
                 'type' => $fakerFr->randomElement($this->dossierTypes),
                 'status' => $fakerFr->randomElement($this->dossierStatuses),
-                'constitutional_article' => '78',
+                'constitutional_article' => $fakerFr->randomElement($this->constitutionArticles),
                 'submitted_on' => $fakerFr->dateTimeBetween('1 year ago', '11 months ago'),
                 'considered_on' => $fakerFr->dateTimeBetween('11 months ago', '10 months ago'),
                 'distributed_on' => $fakerFr->dateTimeBetween('10 months ago', '9 months ago'),
