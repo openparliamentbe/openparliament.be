@@ -14,7 +14,7 @@ class ParliamentsTableSeeder extends Seeder
      */
     public function run()
     {
-        $data  = [
+        $data = [
             [
                 'id'      => 'k',
                 'name_en' => 'Chamber of Representatives',
