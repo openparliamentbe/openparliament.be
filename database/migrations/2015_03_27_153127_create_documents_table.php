@@ -27,7 +27,7 @@ class CreateDocumentsTable extends Migration
 
             // Main data.
             // Official identification number.
-            $table->string('number', 9)->unique();
+            $table->string('number', 10)->unique();
             // Dates that are relevant to the parliamentary procedure.
             $table->date('submitted_on')->nullable();
             $table->date('distributed_on')->nullable();
