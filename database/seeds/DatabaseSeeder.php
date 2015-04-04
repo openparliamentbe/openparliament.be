@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call('SessionsTableSeeder');
         $this->call('DossiersTableSeeder');
         $this->call('DocumentsTableSeeder');
+        $this->call('PartiesTableSeeder');
     }
 }
