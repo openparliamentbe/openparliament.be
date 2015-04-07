@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call('DossiersTableSeeder');
         $this->call('DocumentsTableSeeder');
         $this->call('PartiesTableSeeder');
+        $this->call('PoliticiansTableSeeder');
     }
 }
