@@ -1,5 +1,6 @@
 <?php
 
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
 /**
@@ -14,6 +15,11 @@ class PoliticiansTableSeeder extends Seeder
      */
     public function run()
     {
+        $fakerNl = Faker::create('nl_BE');
+
+        // Seed the generators so that they always produce the same fake data.
+        $fakerNl->seed(2015);
+
         $data = [
             [
                 'party_id'   => 1,
@@ -46,6 +52,25 @@ class PoliticiansTableSeeder extends Seeder
                 'dead_on'    => null,
             ],
         ];
+
+        foreach (range(1, 90) as $index) {
+            $gender     = $fakerNl->randomElement(['male', 'female']);
+            $given_name = $fakerNl->firstname($gender);
+            $surname    = $fakerNl->lastname;
+
+            $email = "{$given_name}.{$surname}@example.dev";
+
+            $data[] = [
+                'party_id'   => $fakerNl->numberBetween(1, 5),
+                'given_name' => $given_name,
+                'surname'    => $surname,
+                'gender'     => $gender[0],
+                'lang'       => 'nl',
+                'email'      => strtolower(str_replace(' ', '', $email)),
+                'born_on'    => $fakerNl->dateTimeBetween('80 years ago', '30 years ago'),
+                'dead_on'    => null,
+            ];
+        }
 
         DB::table('politicians')->insert($data);
     }
