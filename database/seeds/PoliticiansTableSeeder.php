@@ -15,9 +15,11 @@ class PoliticiansTableSeeder extends Seeder
      */
     public function run()
     {
+        $fakerFr = Faker::create('fr_FR');
         $fakerNl = Faker::create('nl_BE');
 
         // Seed the generators so that they always produce the same fake data.
+        $fakerFr->seed(2015);
         $fakerNl->seed(2015);
 
         $data = [
@@ -68,6 +70,25 @@ class PoliticiansTableSeeder extends Seeder
                 'lang'       => 'nl',
                 'email'      => strtolower(str_replace(' ', '', $email)),
                 'born_on'    => $fakerNl->dateTimeBetween('80 years ago', '30 years ago'),
+                'dead_on'    => null,
+            ];
+        }
+
+        foreach (range(1, 57) as $index) {
+            $gender     = $fakerFr->randomElement(['male', 'female']);
+            $given_name = $fakerFr->firstname($gender);
+            $surname    = $fakerFr->lastname;
+
+            $email = "{$given_name}.{$surname}@example.dev";
+
+            $data[] = [
+                'party_id'   => $fakerFr->numberBetween(1, 5),
+                'given_name' => $given_name,
+                'surname'    => $surname,
+                'gender'     => $gender[0],
+                'lang'       => 'fr',
+                'email'      => strtolower(str_replace(' ', '', $email)),
+                'born_on'    => $fakerFr->dateTimeBetween('80 years ago', '30 years ago'),
                 'dead_on'    => null,
             ];
         }
