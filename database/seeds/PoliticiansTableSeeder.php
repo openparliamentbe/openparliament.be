@@ -22,6 +22,7 @@ class PoliticiansTableSeeder extends Seeder
         $fakerFr->seed(2015);
         $fakerNl->seed(2015);
 
+        // Start by adding a few hardcoded politicians.
         $data = [
             [
                 'party_id'   => 1,
@@ -55,40 +56,33 @@ class PoliticiansTableSeeder extends Seeder
             ],
         ];
 
-        foreach (range(1, 90) as $index) {
-            $gender     = $fakerNl->randomElement(['male', 'female']);
-            $given_name = $fakerNl->firstname($gender);
-            $surname    = $fakerNl->lastname;
+        // Then, add some random politicians data.
+        foreach (range(1, 147) as $index) {
+
+            // By default, generate data for Dutch-speaking politicians.
+            $faker = $fakerNl;
+            $lang  = 'nl';
+
+            // At some point, start making data for French-speaking ones instead.
+            if ($index > 90) {
+                $faker = $fakerFr;
+                $lang  = 'fr';
+            }
+
+            $gender     = $faker->randomElement(['male', 'female']);
+            $given_name = $faker->firstname($gender);
+            $surname    = $faker->lastname;
 
             $email = "{$given_name}.{$surname}@example.dev";
 
             $data[] = [
-                'party_id'   => $fakerNl->numberBetween(1, 5),
+                'party_id'   => $faker->numberBetween(1, 5),
                 'given_name' => $given_name,
                 'surname'    => $surname,
                 'gender'     => $gender[0],
-                'lang'       => 'nl',
+                'lang'       => $lang,
                 'email'      => strtolower(str_replace(' ', '', $email)),
-                'born_on'    => $fakerNl->dateTimeBetween('80 years ago', '30 years ago'),
-                'dead_on'    => null,
-            ];
-        }
-
-        foreach (range(1, 57) as $index) {
-            $gender     = $fakerFr->randomElement(['male', 'female']);
-            $given_name = $fakerFr->firstname($gender);
-            $surname    = $fakerFr->lastname;
-
-            $email = "{$given_name}.{$surname}@example.dev";
-
-            $data[] = [
-                'party_id'   => $fakerFr->numberBetween(1, 5),
-                'given_name' => $given_name,
-                'surname'    => $surname,
-                'gender'     => $gender[0],
-                'lang'       => 'fr',
-                'email'      => strtolower(str_replace(' ', '', $email)),
-                'born_on'    => $fakerFr->dateTimeBetween('80 years ago', '30 years ago'),
+                'born_on'    => $faker->dateTimeBetween('80 years ago', '30 years ago'),
                 'dead_on'    => null,
             ];
         }
