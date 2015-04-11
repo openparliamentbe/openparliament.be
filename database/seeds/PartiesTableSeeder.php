@@ -15,6 +15,7 @@ class PartiesTableSeeder extends Seeder
     public function run()
     {
         $data = [
+            // A few ‘normal’ parties.
             [
                 'name'         => 'Cats',
                 'abbreviation' => 'CAT',
@@ -33,12 +34,15 @@ class PartiesTableSeeder extends Seeder
                 'founded_on'   => '1920-01-01',
                 'dissolved_on' => null,
             ],
+            // A party with several words in his official name. This is
+            // probably the most common case in the real world.
             [
                 'name'         => 'Rainbow Fish Party',
                 'abbreviation' => 'RFP',
                 'founded_on'   => '1950-01-01',
                 'dissolved_on' => null,
             ],
+            // A dissolved party.
             [
                 'name'         => 'Original League of Dolphins',
                 'abbreviation' => 'OLD',
