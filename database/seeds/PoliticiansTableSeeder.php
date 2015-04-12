@@ -15,10 +15,12 @@ class PoliticiansTableSeeder extends Seeder
      */
     public function run()
     {
+        $fakerDe = Faker::create('de_DE');
         $fakerFr = Faker::create('fr_BE');
         $fakerNl = Faker::create('nl_BE');
 
         // Seed the generators so that they always produce the same fake data.
+        $fakerDe->seed(2015);
         $fakerFr->seed(2015);
         $fakerNl->seed(2015);
 
@@ -67,6 +69,11 @@ class PoliticiansTableSeeder extends Seeder
             if ($index > 90) {
                 $faker = $fakerFr;
                 $lang  = 'fr';
+            }
+            // Finally, make some data for German-speaking politicians.
+            if ($index > 140) {
+                $faker = $fakerDe;
+                $lang  = 'de';
             }
 
             $gender     = $faker->randomElement(['male', 'female']);
