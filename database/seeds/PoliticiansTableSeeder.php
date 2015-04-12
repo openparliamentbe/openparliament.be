@@ -15,14 +15,14 @@ class PoliticiansTableSeeder extends Seeder
      */
     public function run()
     {
-        $fakerDe = Faker::create('de_DE');
-        $fakerFr = Faker::create('fr_BE');
-        $fakerNl = Faker::create('nl_BE');
+        $faker_de = Faker::create('de_DE');
+        $faker_fr = Faker::create('fr_BE');
+        $faker_nl = Faker::create('nl_BE');
 
         // Seed the generators so that they always produce the same fake data.
-        $fakerDe->seed(2015);
-        $fakerFr->seed(2015);
-        $fakerNl->seed(2015);
+        $faker_de->seed(2015);
+        $faker_fr->seed(2015);
+        $faker_nl->seed(2015);
 
         // Start by adding a few hardcoded politicians.
         $data = [
@@ -61,20 +61,11 @@ class PoliticiansTableSeeder extends Seeder
         // Then, add some random politicians data.
         foreach (range(4, 500) as $index) {
 
-            // By default, generate data for Dutch-speaking politicians.
-            $faker = $fakerNl;
-            $lang  = 'nl';
+            $lang = 'nl';
+            if ($index > 300) $lang = 'fr';
+            if ($index > 480) $lang = 'de';
 
-            // At some point, start making data for French-speaking ones instead.
-            if ($index > 300) {
-                $faker = $fakerFr;
-                $lang  = 'fr';
-            }
-            // Finally, make some data for German-speaking politicians.
-            if ($index > 480) {
-                $faker = $fakerDe;
-                $lang  = 'de';
-            }
+            $faker = ${'faker_'.$lang};
 
             $gender     = $faker->randomElement(['male', 'female']);
             $given_name = $faker->firstname($gender);
