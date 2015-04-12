@@ -59,19 +59,19 @@ class PoliticiansTableSeeder extends Seeder
         ];
 
         // Then, add some random politicians data.
-        foreach (range(4, 150) as $index) {
+        foreach (range(4, 500) as $index) {
 
             // By default, generate data for Dutch-speaking politicians.
             $faker = $fakerNl;
             $lang  = 'nl';
 
             // At some point, start making data for French-speaking ones instead.
-            if ($index > 90) {
+            if ($index > 300) {
                 $faker = $fakerFr;
                 $lang  = 'fr';
             }
             // Finally, make some data for German-speaking politicians.
-            if ($index > 140) {
+            if ($index > 480) {
                 $faker = $fakerDe;
                 $lang  = 'de';
             }
