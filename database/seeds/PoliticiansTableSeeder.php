@@ -15,7 +15,7 @@ class PoliticiansTableSeeder extends Seeder
      */
     public function run()
     {
-        $fakerFr = Faker::create('fr_FR');
+        $fakerFr = Faker::create('fr_BE');
         $fakerNl = Faker::create('nl_BE');
 
         // Seed the generators so that they always produce the same fake data.
