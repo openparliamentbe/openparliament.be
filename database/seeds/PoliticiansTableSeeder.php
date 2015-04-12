@@ -80,7 +80,8 @@ class PoliticiansTableSeeder extends Seeder
             $given_name = $faker->firstname($gender);
             $surname    = $faker->lastname;
 
-            $email = "{$given_name}.{$surname}@example.dev";
+            $email = $given_name.'.'.$surname.'@'.$faker->domainName;
+            $email = $faker->toAscii($email);
 
             $data[] = [
                 'party_id'   => $faker->numberBetween(1, 5),
