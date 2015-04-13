@@ -71,21 +71,35 @@ class PoliticiansTableSeeder extends Seeder
             $given_name = $faker->firstname($gender);
             $surname    = $faker->lastname;
 
-            $email = $given_name.'.'.$surname.'@'.$faker->domainName;
-            $email = $faker->toAscii($email);
-
             $data[] = [
                 'party_id'   => $faker->numberBetween(1, 5),
                 'given_name' => $given_name,
                 'surname'    => $surname,
                 'gender'     => $gender[0],
                 'lang'       => $lang,
-                'email'      => strtolower(str_replace(' ', '', $email)),
+                'email'      => $this->generateEmail($given_name, $surname, $faker),
                 'born_on'    => $faker->dateTimeBetween('80 years ago', '30 years ago'),
                 'dead_on'    => null,
             ];
         }
 
         DB::table('politicians')->insert($data);
+    }
+
+    /**
+     * Generate an e-mail address with the given identity.
+     *
+     * @param  string          $given_name
+     * @param  string          $surname
+     * @param  \Faker\Factory  $faker
+     * @return string
+     */
+    protected function generateEmail($given_name, $surname, $faker)
+    {
+        $email = $given_name.'.'.$surname.'@'.$faker->domainName;
+
+        $email = $faker->toAscii($email);
+
+        return strtolower(str_replace(' ', '', $email));
     }
 }
