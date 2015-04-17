@@ -15,6 +15,7 @@ class ParliamentsTableSeeder extends Seeder
     public function run()
     {
         $data = [
+            // Assemblies of the federal parliament.
             [
                 'id'      => 'k',
                 'name_en' => 'Chamber of Representatives',
