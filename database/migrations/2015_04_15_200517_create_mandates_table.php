@@ -11,6 +11,13 @@ use Illuminate\Database\Migrations\Migration;
 class CreateMandatesTable extends Migration
 {
     /**
+     * Types of possible political mandates.
+     *
+     * @var array
+     */
+    protected $mandateTypes = ['k', 's'];
+
+    /**
      * Create the table.
      */
     public function up()
@@ -29,7 +36,7 @@ class CreateMandatesTable extends Migration
 
             // Main data.
             // The type of the political mandate.
-            $table->enum('type', ['k', 's']);
+            $table->enum('type', $this->mandateTypes);
             // The lang associated with the mandate. Usually the same as the
             // language of the politician, but can be different.
             $table->enum('lang', ['de', 'fr', 'nl']);
