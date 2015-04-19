@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call('DocumentsTableSeeder');
         $this->call('PartiesTableSeeder');
         $this->call('PoliticiansTableSeeder');
+        $this->call('MandatesTableSeeder');
     }
 }
