@@ -14,7 +14,19 @@ class MandatesTableSeeder extends Seeder
      */
     public function run()
     {
-        $data = [
+        $data = $this->getHardcodedData();
+
+        DB::table('mandates')->insert($data);
+    }
+
+    /**
+     * Provide an array of hardcoded mandates data.
+     *
+     * @return array
+     */
+    protected function getHardcodedData()
+    {
+        return [
             [
                 'legislature_id'      => '54k',
                 'politician_id'       => 1,
@@ -46,7 +58,5 @@ class MandatesTableSeeder extends Seeder
                 'ended_on'            => null,
             ],
         ];
-
-        DB::table('mandates')->insert($data);
     }
 }
