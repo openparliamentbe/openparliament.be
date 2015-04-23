@@ -78,11 +78,11 @@ class MandatesTableSeeder extends Seeder
         foreach (range(4, 500) as $index) {
             // We will leave some politicians without any mandate.
             if (
-                // Skipped NL politicians
+                // Skipped NL-speaking politicians
                 $index > 92 && $index <= 300
-                // Skipped FR politicians
+                // Skipped FR-speaking politicians
                 || $index > 356 && $index <= 480
-                // Skipped DE politicians
+                // Skipped DE-speaking politicians
                 || $index > 482
             ) {
                 continue;
